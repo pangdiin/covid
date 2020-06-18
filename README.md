@@ -18,7 +18,7 @@ Most  Laravel dev's should be pretty familiar with it.
 -  Make sure you have your mysql up and running, create a new database and name it covidapp.
 - Use the terminal and go to the path directory of the app and run the command "composer install" note: should have php and composer installed on your machine
 - Use terminal and run the command "php artisan migrate"
-- Use the terminal and run "php artisan covid:data" this will migrate the data from the json file to our database
+- Use the terminal and run "php artisan covid:data" this will migrate the data from the json file[this is came from the csv file that you have given, I just convert it to json in order to push in the database] to our database
 - Make a new terminal tab and run the command "php artisan serve"
 - Open your chrome browser and go to http://127.0.0.1:8000/top/confirmed?observation_date=2020-02-07&max_results=10 and check the result.
 
