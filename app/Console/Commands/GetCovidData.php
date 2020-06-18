@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\CovidObservation;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class GetCovidData extends Command
@@ -37,6 +39,26 @@ class GetCovidData extends Command
      */
     public function handle()
     {
-        //
+        $jsonData = file_get_contents("convertcsv.json");
+
+        $data = json_decode($jsonData, true);
+
+        foreach ($data as $key => $value) {
+            $this->save($value);
+        }
+    }
+
+    private function save($data)
+    {
+        $covid = new CovidObservation();
+        $covid->sno                 = $data['SNo'];
+        $covid->observation_date    = Carbon::parse($data['ObservationDate'])->format('Y-m-d');
+        $covid->province_state      = $data['Province/State'];
+        $covid->country_region      = $data['Country/Region'];
+        $covid->confirmed           = $data['Confirmed'];
+        $covid->deaths              = $data['Deaths'];
+        $covid->recovered           = $data['Recovered'];
+        $covid->updated_at          = $data['Last Update'];
+        $covid->save();
     }
 }
