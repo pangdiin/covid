@@ -54,7 +54,7 @@ class GetCovidData extends Command
         $covid->sno                 = $data['SNo'];
         $covid->observation_date    = Carbon::parse($data['ObservationDate'])->format('Y-m-d');
         $covid->province_state      = $data['Province/State'];
-        $covid->country_region      = $data['Country/Region'];
+        $covid->country      = $data['Country/Region'];
         $covid->confirmed           = $data['Confirmed'];
         $covid->deaths              = $data['Deaths'];
         $covid->recovered           = $data['Recovered'];

@@ -18,7 +18,7 @@ class CreateCovidObservationsTable extends Migration
             $table->integer('sno')->nullable();
             $table->date('observation_date')->nullable();
             $table->string('province_state')->nullable();
-            $table->string('country_region')->nullable();
+            $table->string('country')->nullable();
             $table->string('confirmed')->nullable();
             $table->string('deaths')->nullable();
             $table->string('recovered')->nullable();
